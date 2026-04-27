@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<title>Level 12 Unlocked 🎮</title>
+
+<style>
+body {
+    margin: 0;
+    background: radial-gradient(circle at top, #1a001f, #000);
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    color: #c77dff;
+}
+
+/* BOTÃO */
+#abrirBtn {
+    margin-top: 200px;
+    padding: 15px 30px;
+    font-size: 20px;
+    background: black;
+    border: 2px solid #9d4edd;
+    color: #c77dff;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #9d4edd;
+    transition: 0.3s;
+}
+
+#abrirBtn:hover {
+    background: #9d4edd;
+    color: black;
+}
+
+/* CARTA */
+.carta {
+    display: none;
+    background: #0d0d0d;
+    color: #c77dff;
+    width: 360px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #9d4edd;
+    box-shadow: 0 0 20px #9d4edd;
+    animation: abrir 1s ease forwards;
+}
+
+@keyframes abrir {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* TEXTO */
+#texto {
+    white-space: pre-line;
+    border-right: 2px solid #c77dff;
+    display: inline-block;
+    padding-right: 5px;
+    font-size: 15px;
+    text-align: left;
+}
+
+/* CURSOR PISCANDO */
+@keyframes piscar {
+    50% { border-color: transparent; }
+}
+
+#texto {
+    animation: piscar 1s infinite;
+}
+
+/* FOTO */
+img {
+    width: 200px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 2px solid #9d4edd;
+}
+</style>
+
+</head>
+
+<body>
+
+<button id="abrirBtn">▶ Start Game</button>
+
+<div class="carta" id="carta">
+
+<h2>🎮 Level 12 Unlocked!</h2>
+
+<p id="texto"></p>
+
+<img src="foto.jpeg">
+
+<br><br>
+
+<audio id="musica" controls loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+const mensagem = `PLAYER: VOCÊ 🎮
+
+LEVEL 12 DESBLOQUEADO!
+
+Mesmo a gente se conhecendo desde 2024,
+já deu pra ver que você é um player incrível.
+
+STATUS:
+Inteligência: alta
+Humor: excelente
+Carisma: top
+
+MISSÃO DESSE ANO:
+- se divertir muito
+- conquistar coisas novas
+- dar muitas risadas
+- aproveitar cada momento
+
+RECOMPENSA:
+Um ano cheio de coisas boas!
+
+Parabéns! 🎉
+
+ASS:
+fOXY 🦊`;
+
+let i = 0;
+
+function escreverTexto() {
+    if (i < mensagem.length) {
+        document.getElementById("texto").innerHTML += mensagem.charAt(i);
+        i++;
+        setTimeout(escreverTexto, 35);
+    }
+}
+
+function abrirCarta() {
+    document.getElementById("abrirBtn").style.display = "none";
+    document.getElementById("carta").style.display = "block";
+
+    document.getElementById("musica").play();
+    escreverTexto();
+}
+
+document.getElementById("abrirBtn").addEventListener("click", abrirCarta);
+</script>
+
+</body>
+
+</html>
